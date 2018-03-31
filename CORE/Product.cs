@@ -2,13 +2,13 @@ namespace Urbaniak.PW_project.CORE
 {
     public class Product
     {
-        private string _name;
+        private readonly string _name;
         // name of the product
-        private Country _country;
+        private readonly Country _country;
         // country of origin of the product
-        private int _size;
+        private readonly int _size;
         // size in ml
-        private string _mark;
+        private readonly string _mark;
         // mark of the product
         private static int _numberOfProducts;
 
@@ -18,10 +18,6 @@ namespace Urbaniak.PW_project.CORE
             {
                 return _country;
             }
-            set
-            {
-                _country = value;
-            }
         }
 
         public int Size 
@@ -29,11 +25,6 @@ namespace Urbaniak.PW_project.CORE
             get
             {
                 return _size;
-            }
-
-            set 
-            {
-                _size = value;
             }
         }
 
@@ -43,11 +34,6 @@ namespace Urbaniak.PW_project.CORE
             {
                 return _name;
             }
-
-            set 
-            {
-                _name = value;
-            }
         }
 
         public string Mark
@@ -55,10 +41,6 @@ namespace Urbaniak.PW_project.CORE
             get
             {
                 return _mark;
-            }
-            set
-            {
-                _mark = value;
             }
         }
 

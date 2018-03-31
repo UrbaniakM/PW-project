@@ -2,11 +2,11 @@ namespace Urbaniak.PW_project.CORE
 {
     public class Producent
     {
-        private string _name;
+        private readonly string _name;
         // name of the producent
-        private string _address;
+        private readonly string _address;
         // address of the producent
-        private Country _country;
+        private readonly Country _country;
         // country of the producent
         private static int _numberOfProducents;
 
@@ -16,10 +16,6 @@ namespace Urbaniak.PW_project.CORE
             {
                 return _name;
             }
-            set
-            {
-                _name = value;
-            }
         }
 
         public string Address
@@ -27,10 +23,6 @@ namespace Urbaniak.PW_project.CORE
             get
             {
                 return _address;
-            }
-            set
-            {
-                _address = value;
             }
         }
 
