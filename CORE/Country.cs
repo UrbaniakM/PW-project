@@ -10,6 +10,7 @@ namespace Urbaniak.PW_project.CORE
         Latvia,
         Lithuania,
         Slovakia,
+        Sweden,
         Ukraine
         
     }

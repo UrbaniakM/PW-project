@@ -1,4 +1,6 @@
 ﻿using System;
+using Urbaniak.PW_project.BL;
+using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI
 {
@@ -6,7 +8,9 @@ namespace Urbaniak.PW_project.UI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ConsoleUI consoleUI = new ConsoleUI();
+            consoleUI.PrintProducents();
+            consoleUI.PrintProducts();
         }
     }
 }
