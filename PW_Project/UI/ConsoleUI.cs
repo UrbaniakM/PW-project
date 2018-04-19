@@ -12,13 +12,12 @@ namespace Urbaniak.PW_project.UI
 {
     public class ConsoleUI
     {
-        private IProducentsBL _producentsBL = new ProducentsBL();
-        private IProductsBL _productsBL = new ProductsBL();
+        private BusinessLogic _businessLogic = new BusinessLogic();
 
         public void PrintProducents()
         {
             Console.WriteLine("Producents:");
-            List<Producent> producents = _producentsBL.GetProducents();
+            List<Producent> producents = _businessLogic.ProducentsBL.GetAll();
             foreach (Producent producent in producents)
             {
                 System.Console.WriteLine(producent);
@@ -29,7 +28,7 @@ namespace Urbaniak.PW_project.UI
         public void PrintProducts()
         {
             Console.WriteLine("Products");
-            List<Product> products = _productsBL.GetProducts();
+            List<Product> products = _businessLogic.ProductsBL.GetAll();
             foreach (Product product in products)
             {
                 System.Console.WriteLine(product);

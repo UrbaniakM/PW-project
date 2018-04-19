@@ -7,7 +7,7 @@
     <ProjectGuid>{DFAB9604-C031-4BEB-8A31-F481A5DA7E6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CORE</RootNamespace>
+    <RootNamespace>Urbaniak.PW_project.CORE</RootNamespace>
     <AssemblyName>CORE</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

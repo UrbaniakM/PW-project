@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Urbaniak.PW_project.INTERFACES
 {
-    public interface IDAO
+    public interface IProducentsDAO
     {
-
-        IProducentsDAO ProducentsDAO { get; }
-
-        IProductsDAO ProductsDAO { get; }
-
+        List<CORE.Producent> GetAll();
     }
 }

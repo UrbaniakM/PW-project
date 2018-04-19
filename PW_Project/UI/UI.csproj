@@ -7,7 +7,7 @@
     <ProjectGuid>{090FF292-91FB-40A3-A539-E70698EC0AFF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UI</RootNamespace>
+    <RootNamespace>Urbaniak.PW_project.UI</RootNamespace>
     <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

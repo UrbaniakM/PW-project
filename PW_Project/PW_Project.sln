@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CORE", "CORE\CORE.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INTERFACES", "INTERFACES\INTERFACES.csproj", "{3F3D5C11-55DC-4EEE-B09E-5F47E1ACCF3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOMock1", "DAOMock1\DAOMock1.csproj", "{7A45D07D-E416-4614-AE03-8635C1D34249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3F3D5C11-55DC-4EEE-B09E-5F47E1ACCF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F3D5C11-55DC-4EEE-B09E-5F47E1ACCF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F3D5C11-55DC-4EEE-B09E-5F47E1ACCF3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A45D07D-E416-4614-AE03-8635C1D34249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A45D07D-E416-4614-AE03-8635C1D34249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A45D07D-E416-4614-AE03-8635C1D34249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A45D07D-E416-4614-AE03-8635C1D34249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

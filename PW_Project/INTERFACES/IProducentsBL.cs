@@ -8,6 +8,6 @@ namespace Urbaniak.PW_project.INTERFACES
 {
     public interface IProducentsBL
     {
-        List<CORE.Producent> GetProducents();
+        List<CORE.Producent> GetAll();
     }
 }

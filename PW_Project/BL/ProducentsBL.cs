@@ -13,11 +13,16 @@ namespace Urbaniak.PW_project.BL
 {
     public class ProducentsBL : IProducentsBL
     {
-        private IDAO _dao = new DAOMock();
+        private IProducentsDAO _producentsDAO = null; 
 
-        public List<Producent> GetProducents()
+        public ProducentsBL(IDAO dao)
         {
-            return _dao.GetProducents();
+            _producentsDAO = dao.ProducentsDAO;
+        }
+
+        public List<Producent> GetAll()
+        {
+            return _producentsDAO.GetAll();
         }
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{3F3D5C11-55DC-4EEE-B09E-5F47E1ACCF3F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>INTERFACES</RootNamespace>
+    <RootNamespace>Urbaniak.PW_project.INTERFACES</RootNamespace>
     <AssemblyName>INTERFACES</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="IDAO.cs" />
     <Compile Include="IProducentsBL.cs" />
+    <Compile Include="IProducentsDAO.cs" />
     <Compile Include="IProductsBL.cs" />
+    <Compile Include="IProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
