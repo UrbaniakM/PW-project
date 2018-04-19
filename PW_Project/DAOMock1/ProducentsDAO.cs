@@ -10,7 +10,7 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.DAO
 {
-    public class ProducentsDAO : IProducentsDAO
+    internal class ProducentsDAO : IProducentsDAO
     {
         public List<Producent> GetAll()
         {

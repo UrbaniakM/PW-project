@@ -10,7 +10,7 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.DAO
 {
-    public class ProductsDAO : IProductsDAO
+    internal class ProductsDAO : IProductsDAO
     {
         public List<Product> GetAll()
         {

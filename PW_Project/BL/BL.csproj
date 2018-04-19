@@ -44,20 +44,28 @@
     <Compile Include="ProducentsBL.cs" />
     <Compile Include="ProductBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CORE\CORE.csproj">
       <Project>{dfab9604-c031-4beb-8a31-f481a5da7e6a}</Project>
       <Name>CORE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAOMock1\DAOMock1.csproj">
-      <Project>{7a45d07d-e416-4614-ae03-8635c1d34249}</Project>
-      <Name>DAOMock1</Name>
-    </ProjectReference>
     <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
       <Project>{3f3d5c11-55dc-4eee-b09e-5f47e1accf3f}</Project>
       <Name>INTERFACES</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
