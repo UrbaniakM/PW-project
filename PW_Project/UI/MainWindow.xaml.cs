@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//dlls
+using Urbaniak.PW_project.BL;
+
 namespace Urbaniak.PW_project.UI
 {
     /// <summary>
@@ -20,9 +23,25 @@ namespace Urbaniak.PW_project.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BusinessLogic businessLogic;
+
+        private void ProducentsDisplay(object sender, RoutedEventArgs args)
+        {
+            ContentDataGrid.ItemsSource = businessLogic.ProducentsBL.GetAll();
+        }
+
+        private void ProductsDisplay(object sender, RoutedEventArgs args)
+        {
+            ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            businessLogic = new BusinessLogic();
+            ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
+
             ConsoleUI consoleUI = new ConsoleUI();
             consoleUI.PrintProducents();
             consoleUI.PrintProducts();

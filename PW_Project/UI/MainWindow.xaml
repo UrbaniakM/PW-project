@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:Urbaniak.PW_project.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Producents">
+                <MenuItem Header="Display" Click="ProducentsDisplay" />
+                <MenuItem Header="Create"/>
+                <MenuItem Header="Update"/>
+                <MenuItem Header="Delete"/>
+            </MenuItem>
+            <MenuItem Header="Products">
+                <MenuItem Header="Display" Click="ProductsDisplay"/>
+                <MenuItem Header="Create"/>
+                <MenuItem Header="Update"/>
+                <MenuItem Header="Delete"/>
+            </MenuItem>
+        </Menu>
+        <DataGrid Name="ContentDataGrid" AutoGenerateColumns="True" />
+    </DockPanel>
 </Window>
