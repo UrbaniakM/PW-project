@@ -25,7 +25,7 @@ namespace Urbaniak.PW_project.BL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DAOMock1\\bin\\Debug\\DAOMock1.dll")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DAOMock2\\bin\\Debug\\DAOMock2.dll")]
         public string DAO_dll_location {
             get {
                 return ((string)(this["DAO_dll_location"]));

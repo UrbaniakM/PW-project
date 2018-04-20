@@ -2,12 +2,12 @@
 {
     public class Producent
     {
-        private readonly string _name;
         // name of the producent
-        private readonly string _address;
+        private readonly string _name;
         // address of the producent
-        private readonly Country _country;
+        private readonly string _address;
         // country of the producent
+        private readonly Country _country;
         private static int _numberOfProducents;
 
         public string Name

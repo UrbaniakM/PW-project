@@ -2,14 +2,14 @@
 {
     public class Product
     {
-        private readonly string _name;
         // name of the product
-        private readonly Country _country;
+        private readonly string _name;
         // country of origin of the product
-        private readonly int _size;
+        private readonly Country _country;
         // size in ml
-        private readonly string _mark;
+        private readonly int _size;
         // mark of the product
+        private readonly string _mark;
         private static int _numberOfProducts;
 
         public Country Country
@@ -49,7 +49,7 @@
             _numberOfProducts = 0;
         }
 
-        public Product(string name, string mark, Country country, int size)
+        public Product(string mark, string name, Country country, int size)
         {
             _name = name;
             _mark = mark;
@@ -58,9 +58,11 @@
             _numberOfProducts++;
         }
 
-        public Product(string name, string mark) : this(name, mark, Country.Poland, 500)
+        public Product(string mark, string name) : this(mark, name, Country.Poland, 500)
         { }
 
+        public Product(string mark, string name, Country country) : this(mark, name, country, 500)
+        { }
 
         public override string ToString()
         {
