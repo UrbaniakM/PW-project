@@ -28,11 +28,13 @@ namespace Urbaniak.PW_project.UI
         private void ProducentsDisplay(object sender, RoutedEventArgs args)
         {
             ContentDataGrid.ItemsSource = businessLogic.ProducentsBL.GetAll();
+            this.Title = "Producents";
         }
 
         private void ProductsDisplay(object sender, RoutedEventArgs args)
         {
             ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
+            this.Title = "Products";
         }
 
         public MainWindow()
@@ -41,6 +43,7 @@ namespace Urbaniak.PW_project.UI
             
             businessLogic = new BusinessLogic();
             ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
+            this.Title = "Products";
 
             ConsoleUI consoleUI = new ConsoleUI();
             consoleUI.PrintProducents();

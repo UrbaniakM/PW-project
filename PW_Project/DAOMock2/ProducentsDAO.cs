@@ -12,11 +12,13 @@ namespace Urbaniak.PW_project.DAO
 {
     internal class ProducentsDAO : IProducentsDAO
     {
-        public List<Producent> GetAll()
+        private List<Producent> list;
+
+        internal ProducentsDAO()
         {
-            List<Producent> list = new List<Producent>();
+            list = new List<Producent>();
             Producent producent1 = new Producent("Russkij Standard",
-                "World Trade Center, Office 1503a Krasnopresnenskaya Emb., 12, 123610 Moscow", 
+                "World Trade Center, Office 1503a Krasnopresnenskaya Emb., 12, 123610 Moscow",
                 Country.Russia
             );
             Producent producent2 = new Producent("Sobieski Trade Sp. z o.o.", "Kołaczkowo 9, 62-230 Witkowo");
@@ -24,7 +26,24 @@ namespace Urbaniak.PW_project.DAO
             list.Add(producent1);
             list.Add(producent2);
             list.Add(producent3);
+        }
+
+        public List<Producent> GetAll()
+        {
             return list;
+        }
+
+        public List<Producent> GetByName(string name)
+        {
+            List<Producent> returnList = new List<Producent>();
+            foreach (Producent producent in list)
+            {
+                if (producent.Name.Equals(name))
+                {
+                    returnList.Add(producent);
+                }
+            }
+            return returnList;
         }
     }
 }

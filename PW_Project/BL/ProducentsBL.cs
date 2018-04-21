@@ -23,5 +23,10 @@ namespace Urbaniak.PW_project.BL
         {
             return _producentsDAO.GetAll();
         }
+
+        public List<Producent> GetByName(string name)
+        {
+            return _producentsDAO.GetByName(name);
+        }
     }
 }

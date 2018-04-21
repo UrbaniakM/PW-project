@@ -10,14 +10,16 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Producents">
                 <MenuItem Header="Display" Click="ProducentsDisplay" />
-                <MenuItem Header="Create"/>
-                <MenuItem Header="Update"/>
+                <Separator HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Create..."/>
+                <MenuItem Header="Update..."/>
                 <MenuItem Header="Delete"/>
             </MenuItem>
             <MenuItem Header="Products">
                 <MenuItem Header="Display" Click="ProductsDisplay"/>
-                <MenuItem Header="Create"/>
-                <MenuItem Header="Update"/>
+                <Separator HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Create..."/>
+                <MenuItem Header="Update..."/>
                 <MenuItem Header="Delete"/>
             </MenuItem>
         </Menu>

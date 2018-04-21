@@ -12,9 +12,11 @@ namespace Urbaniak.PW_project.DAO
 {
     internal class ProductsDAO : IProductsDAO
     {
-        public List<Product> GetAll()
+        private List<Product> list;
+
+        internal ProductsDAO()
         {
-            List<Product> list = new List<Product>();
+            list = new List<Product>();
             Product product1 = new Product("ŻOŁĄDKOWA", "Gorzka Wódka czysta De Luxe");
             Product product2 = new Product("ŻOŁĄDKOWA", "Gorzka Wódka");
             Product product3 = new Product("SOPLICA", "Czysta Wódka");
@@ -23,7 +25,24 @@ namespace Urbaniak.PW_project.DAO
             list.Add(product2);
             list.Add(product3);
             list.Add(product4);
+        }
+
+        public List<Product> GetAll()
+        {
             return list;
+        }
+
+        public List<Product> GetByName(string name)
+        {
+            List<Product> returnList = new List<Product>();
+            foreach (Product product in list)
+            {
+                if (product.Name.Equals(name))
+                {
+                    returnList.Add(product);
+                }
+            }
+            return returnList;
         }
     }
 }

@@ -9,5 +9,7 @@ namespace Urbaniak.PW_project.INTERFACES
     public interface IProductsDAO
     {
         List<CORE.Product> GetAll();
+
+        List<CORE.Product> GetByName(string name);
     }
 }

@@ -9,5 +9,7 @@ namespace Urbaniak.PW_project.INTERFACES
     public interface IProducentsBL
     {
         List<CORE.Producent> GetAll();
+
+        List<CORE.Producent> GetByName(string name);
     }
 }
