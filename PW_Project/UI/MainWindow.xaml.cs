@@ -46,10 +46,6 @@ namespace Urbaniak.PW_project.UI
 
             ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
             this.Title = "Products";
-
-            ConsoleUI consoleUI = new ConsoleUI();
-            consoleUI.PrintProducents();
-            consoleUI.PrintProducts();
         }
 
         
