@@ -18,31 +18,36 @@ namespace Urbaniak.PW_project.BL
         public IProducentsBL ProducentsBL { get; }
         public IProductsBL ProductsBL { get; }
 
-        public BusinessLogic()
+        public BusinessLogic(string dllLocation)
         {
-            _dao = GetDAO();
+            _dao = GetDAO(dllLocation);
             ProducentsBL = new ProducentsBL(_dao);
             ProductsBL = new ProductsBL(_dao);
         }
 
-        private IDAO GetDAO()
+        private IDAO GetDAO(string dllLocation)
         {
-            Properties.Settings settings = new Properties.Settings();
-            string dllPath = settings.DAO_dll_location;
-            string daoClassName = settings.DAO_class_name;
+            Assembly dll = LoadDll(dllLocation);
 
-            Assembly dll = LoadDll(dllPath);
-            Type type = dll.GetType(daoClassName);
-            return (IDAO) Activator.CreateInstance(type, new object[] { });
+            List<Type> implementing = (from typeInter in dll.GetTypes()
+                               where typeof(IDAO).IsAssignableFrom(typeInter)
+                               select typeInter).ToList();
+
+            if(implementing.Count == 0)
+            {
+                throw new ArgumentException(dllLocation + ": no class implementing IDAO interface.");
+            }
+
+            return (IDAO)Activator.CreateInstance(implementing[0], new object[] { });
 
         }
 
         private Assembly LoadDll(string dllPath)
         {
             // check if full path, for example C:\\
-            if(!dllPath.Contains(":"))
+            if (!dllPath.Contains(":"))
             {
-                string directory = Directory.GetParent(@"../../../").FullName;
+                string directory = Directory.GetParent(@"./").FullName;
                 dllPath = Path.Combine(directory, dllPath);
             }
 

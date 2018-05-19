@@ -22,23 +22,5 @@ namespace Urbaniak.PW_project.BL.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DAOMock2\\bin\\Debug\\DAOMock2.dll")]
-        public string DAO_dll_location {
-            get {
-                return ((string)(this["DAO_dll_location"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Urbaniak.PW_project.DAO.DAOMock")]
-        public string DAO_class_name {
-            get {
-                return ((string)(this["DAO_class_name"]));
-            }
-        }
     }
 }

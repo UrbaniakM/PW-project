@@ -22,5 +22,14 @@ namespace Urbaniak.PW_project.UI.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DAOMock1.dll")]
+        public string DAO_dll_location {
+            get {
+                return ((string)(this["DAO_dll_location"]));
+            }
+        }
     }
 }

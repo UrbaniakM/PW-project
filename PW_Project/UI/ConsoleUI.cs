@@ -7,13 +7,20 @@ using System.Threading.Tasks;
 using Urbaniak.PW_project.BL;
 using Urbaniak.PW_project.INTERFACES;
 using Urbaniak.PW_project.CORE;
+using Urbaniak.PW_project.UI.Properties;
 
 namespace Urbaniak.PW_project.UI
 {
     public class ConsoleUI
     {
-        private BusinessLogic _businessLogic = new BusinessLogic();
+        private BusinessLogic _businessLogic = null;
 
+        public ConsoleUI()
+        {
+            Properties.Settings settings = new Properties.Settings();
+            _businessLogic = new BusinessLogic(settings.DAO_dll_location);
+        }
+        
         public void PrintProducents()
         {
             Console.WriteLine("Producents:");

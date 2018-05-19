@@ -40,8 +40,10 @@ namespace Urbaniak.PW_project.UI
         public MainWindow()
         {
             InitializeComponent();
-            
-            businessLogic = new BusinessLogic();
+
+            Properties.Settings settings = new Properties.Settings();
+            businessLogic = new BusinessLogic(settings.DAO_dll_location);
+
             ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
             this.Title = "Products";
 
@@ -49,5 +51,7 @@ namespace Urbaniak.PW_project.UI
             consoleUI.PrintProducents();
             consoleUI.PrintProducts();
         }
+
+        
     }
 }
