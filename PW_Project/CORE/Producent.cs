@@ -26,6 +26,14 @@
             }
         }
 
+        public Country Country
+        {
+            get
+            {
+                return _country;
+            }
+        }
+
         static Producent()
         {
             _numberOfProducents = 0;

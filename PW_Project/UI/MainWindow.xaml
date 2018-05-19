@@ -4,25 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Urbaniak.PW_project.UI"
+        xmlns:views="clr-namespace:Urbaniak.PW_project.UI.Views"
+        xmlns:viewmodels="clr-namespace:Urbaniak.PW_project.UI.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:ProducentsViewModel}">
+            <views:ProducentsView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ProductsViewModel}">
+            <views:ProductsView DataContext="{Binding}" />
+        </DataTemplate>
+    </Window.Resources>
+    
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Producents">
-                <MenuItem Header="Display" Click="ProducentsDisplay" />
-                <Separator HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="Create..."/>
-                <MenuItem Header="Update..."/>
-                <MenuItem Header="Delete"/>
-            </MenuItem>
-            <MenuItem Header="Products">
-                <MenuItem Header="Display" Click="ProductsDisplay"/>
-                <Separator HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="Create..."/>
-                <MenuItem Header="Update..."/>
-                <MenuItem Header="Delete"/>
-            </MenuItem>
+            <MenuItem Header="Producents" Click="ProducentsDisplay" />
+            <MenuItem Header="Products" Click="ProductsDisplay"/>
         </Menu>
-        <DataGrid Name="ContentDataGrid" AutoGenerateColumns="True" />
+        <Grid>
+            <ContentControl Content="{Binding}"></ContentControl>
+        </Grid>
     </DockPanel>
 </Window>

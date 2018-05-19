@@ -57,6 +57,12 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\ProducentsViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
+    <Compile Include="Views\ProducentsView.xaml.cs">
+      <DependentUpon>ProducentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +76,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ProducentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -112,9 +126,7 @@
       <Name>INTERFACES</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

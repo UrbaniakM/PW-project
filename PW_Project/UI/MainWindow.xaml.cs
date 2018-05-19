@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 //dlls
 using Urbaniak.PW_project.BL;
+using Urbaniak.PW_project.UI.ViewModels;
 
 namespace Urbaniak.PW_project.UI
 {
@@ -24,16 +25,18 @@ namespace Urbaniak.PW_project.UI
     public partial class MainWindow : Window
     {
         private BusinessLogic businessLogic;
+        private ProductsViewModel productsViewModel;
+        private ProducentsViewModel producentsViewModel;
 
         private void ProducentsDisplay(object sender, RoutedEventArgs args)
         {
-            ContentDataGrid.ItemsSource = businessLogic.ProducentsBL.GetAll();
+            DataContext = producentsViewModel;
             this.Title = "Producents";
         }
 
         private void ProductsDisplay(object sender, RoutedEventArgs args)
         {
-            ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
+            DataContext = productsViewModel;
             this.Title = "Products";
         }
 
@@ -44,7 +47,10 @@ namespace Urbaniak.PW_project.UI
             Properties.Settings settings = new Properties.Settings();
             businessLogic = new BusinessLogic(settings.DAO_dll_location);
 
-            ContentDataGrid.ItemsSource = businessLogic.ProductsBL.GetAll();
+            productsViewModel = new ProductsViewModel(businessLogic.ProductsBL);
+            producentsViewModel = new ProducentsViewModel(businessLogic.ProducentsBL);
+
+            DataContext = productsViewModel;
             this.Title = "Products";
         }
 
