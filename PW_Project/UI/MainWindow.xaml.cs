@@ -28,16 +28,19 @@ namespace Urbaniak.PW_project.UI
         private ProductsViewModel productsViewModel;
         private ProducentsViewModel producentsViewModel;
 
-        private void ProducentsDisplay(object sender, RoutedEventArgs args)
+        private void SwitchView(object sender, RoutedEventArgs args)
         {
-            DataContext = producentsViewModel;
-            this.Title = "Producents";
-        }
-
-        private void ProductsDisplay(object sender, RoutedEventArgs args)
-        {
-            DataContext = productsViewModel;
-            this.Title = "Products";
+            MenuItem obj = sender as MenuItem;
+            if(obj.Name.Equals("Producents"))
+            {
+                DataContext = producentsViewModel;
+                this.Title = "Producents";
+            }
+            else
+            {
+                DataContext = productsViewModel;
+                this.Title = "Products";
+            }
         }
 
         public MainWindow()

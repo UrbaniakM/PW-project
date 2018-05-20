@@ -19,8 +19,8 @@
     
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Producents" Click="ProducentsDisplay" />
-            <MenuItem Header="Products" Click="ProductsDisplay"/>
+            <MenuItem Name="Producents"  Header="Producents" Click="SwitchView" />
+            <MenuItem Name="Products" Header="Products" Click="SwitchView"/>
         </Menu>
         <Grid>
             <ContentControl Content="{Binding}"></ContentControl>

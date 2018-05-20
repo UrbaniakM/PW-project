@@ -31,7 +31,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" Visibility="{Binding Path=CurrentProduct,TargetNullValue=Hidden}">
+        <StackPanel Grid.Column="1" Visibility="{Binding Path=CurrentProduct, TargetNullValue=Hidden}">
             <Grid DataContext="{Binding CurrentProduct}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -44,6 +44,16 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                        <Style.Triggers>
+                            <Trigger Property="Grid.Column" Value="1">
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+                
                 <Label Grid.Row="0" Grid.Column="0" Content="Name" />
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name}" />
 
