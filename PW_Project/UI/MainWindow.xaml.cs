@@ -25,16 +25,16 @@ namespace Urbaniak.PW_project.UI
     public partial class MainWindow : Window
     {
         private BusinessLogic businessLogic;
-        private ProductsViewModel productsViewModel;
-        private ProducentsViewModel producentsViewModel;
+        private ProductsListViewModel productsViewModel;
+        private ProducersListViewModel producersViewModel;
 
         private void SwitchView(object sender, RoutedEventArgs args)
         {
             MenuItem obj = sender as MenuItem;
-            if(obj.Name.Equals("Producents"))
+            if(obj.Name.Equals("Producers"))
             {
-                DataContext = producentsViewModel;
-                this.Title = "Producents";
+                DataContext = producersViewModel;
+                this.Title = "Producers";
             }
             else
             {
@@ -50,8 +50,8 @@ namespace Urbaniak.PW_project.UI
             Properties.Settings settings = new Properties.Settings();
             businessLogic = new BusinessLogic(settings.DAO_dll_location);
 
-            productsViewModel = new ProductsViewModel(businessLogic.ProductsBL);
-            producentsViewModel = new ProducentsViewModel(businessLogic.ProducentsBL);
+            productsViewModel = new ProductsListViewModel(businessLogic.ProductsBL);
+            producersViewModel = new ProducersListViewModel(businessLogic.ProducentsBL);
 
             DataContext = productsViewModel;
             this.Title = "Products";

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,42 @@ namespace Urbaniak.PW_project.UI.ViewModels
         {
             if (ErrorsChanged != null)
                 ErrorsChanged(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        public void Validate()
+        {
+            var validationContext = new ValidationContext(this, null, null);
+            var validationResults = new List<ValidationResult>();
+
+            Validator.TryValidateObject(this, validationContext, validationResults, true);
+
+            // Usuwamy z kolekcji _errors błędy dla właściwości, które błędów już nie mają
+            foreach (var kv in _errors.ToList())
+            {
+                if (validationResults.All(r => r.MemberNames.All(m => m != kv.Key)))
+                {
+                    _errors.Remove(kv.Key);
+                    RaiseErrorChanged(kv.Key);
+                }
+            }
+
+            var q = from r in validationResults
+                    from m in r.MemberNames
+                    group r by m into g
+                    select g;
+
+            foreach (var prop in q)
+            {
+                var messages = prop.Select(r => r.ErrorMessage).ToList();
+
+                if (_errors.ContainsKey(prop.Key))
+                {
+                    _errors.Remove(prop.Key);
+                }
+                _errors.Add(prop.Key, messages);
+
+                RaiseErrorChanged(prop.Key);
+            }
         }
     }
 }

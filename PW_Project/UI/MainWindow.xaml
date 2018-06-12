@@ -9,17 +9,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:ProducentsViewModel}">
-            <views:ProducentsView DataContext="{Binding}" />
+        <DataTemplate DataType="{x:Type viewmodels:ProducersListViewModel}">
+            <views:ProducersView DataContext="{Binding}" />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:ProductsViewModel}">
+        <DataTemplate DataType="{x:Type viewmodels:ProductsListViewModel}">
             <views:ProductsView DataContext="{Binding}" />
         </DataTemplate>
     </Window.Resources>
     
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
-            <MenuItem Name="Producents"  Header="Producents" Click="SwitchView" />
+            <MenuItem Name="Producers"  Header="Producers" Click="SwitchView" />
             <MenuItem Name="Products" Header="Products" Click="SwitchView"/>
         </Menu>
         <Grid>

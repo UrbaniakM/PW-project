@@ -14,8 +14,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding Products}" Name="ProductsList"
-                 SelectedItem="{Binding CurrentProduct}" HorizontalContentAlignment="Stretch" >
+        <ListBox Grid.Column="0" ItemsSource="{Binding List}" Name="ProductsList"
+                 SelectedItem="{Binding Current}" HorizontalContentAlignment="Stretch" >
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="cores:Product">
                     <Grid>
@@ -31,8 +31,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" Visibility="{Binding Path=CurrentProduct, TargetNullValue=Hidden}">
-            <Grid DataContext="{Binding CurrentProduct}">
+        <StackPanel Grid.Column="1" Visibility="{Binding Path=Current, TargetNullValue=Hidden}">
+            <Grid DataContext="{Binding Current}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />

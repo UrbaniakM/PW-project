@@ -18,9 +18,9 @@ namespace Urbaniak.PW_project.UI.Views
     /// <summary>
     /// Interaction logic for ProducentsView.xaml
     /// </summary>
-    public partial class ProducentsView : UserControl
+    public partial class ProducersView : UserControl
     {
-        public ProducentsView()
+        public ProducersView()
         {
             InitializeComponent();
         }
