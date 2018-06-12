@@ -12,13 +12,13 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
-    public abstract class ListViewModelBase<T> : INotifyPropertyChanged
+    public abstract class ListViewModelBase<T, WrapperT> : INotifyPropertyChanged
     {
-        private readonly IObjectBL<T> _objBL;
-        private T _current;
+        protected readonly IObjectBL<T> _objBL;
+        protected WrapperT _current;
 
-        public ObservableCollection<T> List { get; set; }
-        public T Current
+        public ObservableCollection<WrapperT> List { get; set; }
+        public WrapperT Current
         {
             get { return _current; }
             set
@@ -31,12 +31,15 @@ namespace Urbaniak.PW_project.UI.ViewModels
         public ListViewModelBase(IObjectBL<T> objBL)
         {
             _objBL = objBL;
-            List = new ObservableCollection<T>(_objBL.GetAll());
+            List = new ObservableCollection<WrapperT>();
+            UpdateList();
             CreateCommand = new RelayCommand(o => CreateObject());
             EditCommand = new RelayCommand(o => Edit());
             SaveCommand = new RelayCommand(o => SaveChanges());
             RemoveCommand = new RelayCommand(o => Remove());
         }
+
+        protected abstract void UpdateList();
 
         #region Commands
 
@@ -49,13 +52,6 @@ namespace Urbaniak.PW_project.UI.ViewModels
         protected abstract void SaveChanges();
         protected abstract void Remove();
         protected abstract void Edit();
-
-        protected void UpdateList()
-        {
-            List.Clear();
-            _objBL.GetAll().ForEach(obj => List.Add(obj));
-            OnPropertyChanged(nameof(List));
-        }
 
         #endregion
 

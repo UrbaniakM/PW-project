@@ -8,10 +8,17 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
-    public class ProductsListViewModel : ListViewModelBase<Product>
+    public class ProductsListViewModel : ListViewModelBase<Product, ProductViewModel>
     {
         public ProductsListViewModel(IProductsBL _objBL) : base(_objBL)
         { }
+
+        protected override void UpdateList()
+        {
+            List.Clear();
+            _objBL.GetAll().ForEach(obj => List.Add(new ProductViewModel(obj)));
+            OnPropertyChanged(nameof(List));
+        }
 
         protected override void CreateObject()
         {

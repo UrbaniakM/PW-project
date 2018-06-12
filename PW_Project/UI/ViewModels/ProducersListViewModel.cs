@@ -10,10 +10,17 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
-    public class ProducersListViewModel : ListViewModelBase<Producent>
+    public class ProducersListViewModel : ListViewModelBase<Producent, ProducerViewModel>
     {
         public ProducersListViewModel(IProducentsBL _objBL) : base(_objBL)
         { }
+
+        protected override void UpdateList()
+        {
+            List.Clear();
+            _objBL.GetAll().ForEach(obj => List.Add(new ProducerViewModel(obj)));
+            OnPropertyChanged(nameof(List));
+        }
 
         protected override void CreateObject()
         {
