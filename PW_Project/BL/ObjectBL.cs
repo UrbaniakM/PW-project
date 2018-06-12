@@ -29,6 +29,6 @@ namespace Urbaniak.PW_project.BL
 
         public bool Remove(uint id) => _dao.Remove(id);
 
-        public bool Update(T obj) => _dao.Update(obj);
+        public T Update(T obj) => _dao.Update(obj);
     }
 }

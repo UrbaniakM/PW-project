@@ -56,15 +56,14 @@ namespace Urbaniak.PW_project.DAO
             return GetAll().RemoveAll(obj => obj.Id == id) > 0;
         }
 
-        public bool Update(Producent obj)
+        public Producent Update(Producent obj)
         {
             int index = GetAll().FindIndex(el => el.Id == obj.Id);
-            if(index < 0)
+            if(index >= 0)
             {
-                return false;
+                GetAll()[index] = obj;
             }
-            GetAll()[index] = obj;
-            return true;
+            return obj;
         }
     }
 }

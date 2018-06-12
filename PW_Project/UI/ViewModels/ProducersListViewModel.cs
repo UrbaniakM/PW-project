@@ -24,22 +24,55 @@ namespace Urbaniak.PW_project.UI.ViewModels
 
         protected override void CreateObject()
         {
-            throw new NotImplementedException();
+            _previous = Current;
+            Current = new ProducerViewModel(List.Max(u => u.Id) + 1);
+            Current.Validate();
+            IsEdited = true;
+            OnPropertyChanged(nameof(IsEdited));
+            OnPropertyChanged(nameof(Current));
         }
 
         protected override void Edit()
         {
-            throw new NotImplementedException();
+            _previous = Current;
+            Current = new ProducerViewModel(Current);
+            Current.Validate();
+            IsEdited = true;
+            OnPropertyChanged(nameof(IsEdited));
+            OnPropertyChanged(nameof(Current));
         }
 
         protected override void Remove()
         {
-            throw new NotImplementedException();
+            bool success = _objBL.Remove(Current.Id);
+            if (!success)
+            {
+                return;
+            }
+            Current = null;
+            UpdateList();
         }
 
         protected override void SaveChanges()
         {
-            throw new NotImplementedException();
+            if (List.Any(obj => obj.Id == Current.Id))
+            {
+                _objBL.Update(Current);
+            }
+            else
+            {
+                _objBL.Add(Current);
+            }
+            IsEdited = false;
+            OnPropertyChanged(nameof(IsEdited));
+            UpdateList();
+        }
+
+        protected override void Cancel()
+        {
+            IsEdited = false;
+            Current = _previous;
+            OnPropertyChanged(nameof(IsEdited));
         }
     }
 }

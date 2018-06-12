@@ -36,12 +36,13 @@
         </ListBox>
 
         <StackPanel Grid.Column="1" Visibility="{Binding Path=Current, TargetNullValue=Hidden}">
-            <Grid DataContext="{Binding Current}">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
@@ -57,25 +58,28 @@
                         </Style.Triggers>
                     </Style>
                 </Grid.Resources>
-                
-                <Label Grid.Row="0" Grid.Column="0" Content="Name" />
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name}" />
+                <Label Grid.Row="0" Grid.Column="0" Content="Id" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Current.Id}" />
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Mark" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Mark}" />
+                <Label Grid.Row="1" Grid.Column="0" Content="Name" />
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Current.Name, ValidatesOnNotifyDataErrors=True}" IsReadOnly="{Binding IsNotEdited}"/>
 
-                <Label Grid.Row="2" Grid.Column="0" Content="Size" />
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Size, StringFormat={}{0} ml}" />
+                <Label Grid.Row="2" Grid.Column="0" Content="Mark" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Current.Mark, ValidatesOnNotifyDataErrors=True}" TextWrapping="Wrap" IsReadOnly="{Binding IsNotEdited}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Size [ml]" />
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Current.Size, ValidatesOnNotifyDataErrors=True}" IsReadOnly="{Binding IsNotEdited}" />
                 
-                <Label Grid.Row="3" Grid.Column="0" Content="Country" />
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=Country}" />
+                <Label Grid.Row="4" Grid.Column="0" Content="Country" />
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=Current.Country, ValidatesOnNotifyDataErrors=True}" IsReadOnly="{Binding IsNotEdited}" />
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <Button Command="{Binding CreateCommand}" Content="Add new product"/>
-            <Button Command="{Binding EditCommand}" Content="Edit selected product"/>
-            <Button Command="{Binding SaveCommand}" Content="Save changes"/>
-            <Button Command="{Binding RemoveCommand}" Content="Remove selected product"/>
+            <Button Command="{Binding SaveCommand}" Margin="0,2,0,2" Content="Save changes"/>
+            <Button Command="{Binding CancelCommand}" Margin="0,2,0,2" Content="Cancel" />
+            <Button Command="{Binding CreateCommand}" Margin="0,2,0,2" Content="Add new product"/>
+            <Button Command="{Binding EditCommand}" Margin="0,2,0,2" Content="Edit selected product"/>
+            <Button Command="{Binding RemoveCommand}" Margin="0,2,0,2" Content="Remove selected product"/>
         </StackPanel>
     </Grid>
 </UserControl>

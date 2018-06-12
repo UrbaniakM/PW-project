@@ -31,6 +31,28 @@ namespace Urbaniak.PW_project.UI.ViewModels
             _country = producer.Country;
         }
 
+        public ProducerViewModel(uint id)
+        {
+            _id = id;
+        }
+
+        #region Conversions
+
+        public ProducerViewModel(ProducerViewModel old)
+        {
+            _id = old.Id;
+            _name = old.Name;
+            _address = old.Address;
+            _country = old.Country;
+        }
+
+        public static implicit operator Producent(ProducerViewModel model)
+        {
+            return new Producent(model.Id, model.Name, model.Address, model.Country);
+        }
+
+        #endregion
+
         #region Properties
 
         public uint Id

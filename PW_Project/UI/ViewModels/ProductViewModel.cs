@@ -23,6 +23,8 @@ namespace Urbaniak.PW_project.UI.ViewModels
         // mark of the product
         private string _mark;
 
+        public List<Country> Countries => Enum.GetValues(typeof(Country)).Cast<Country>().ToList();
+
         public ProductViewModel(Product product)
         {
             _id = product.Id;
@@ -31,6 +33,29 @@ namespace Urbaniak.PW_project.UI.ViewModels
             _size = product.Size;
             _mark = product.Mark;
         }
+
+        public ProductViewModel(uint id)
+        {
+            _id = id;
+        }
+
+        #region Conversions
+
+        public ProductViewModel(ProductViewModel product)
+        {
+            _id = product.Id;
+            _name = product.Name;
+            _country = product.Country;
+            _size = product.Size;
+            _mark = product.Mark;
+        }
+
+        public static implicit operator Product(ProductViewModel model)
+        {
+            return new Product(model.Id, model.Mark, model.Name, model.Country, model.Size);
+        }
+
+        #endregion
 
         #region Properties
 

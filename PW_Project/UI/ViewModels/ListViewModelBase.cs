@@ -12,7 +12,7 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
-    public abstract class ListViewModelBase<T, WrapperT> : INotifyPropertyChanged
+    public abstract class ListViewModelBase<T, WrapperT> : INotifyPropertyChanged where WrapperT : ViewModelBase
     {
         protected readonly IObjectBL<T> _objBL;
         protected WrapperT _current;
@@ -28,15 +28,36 @@ namespace Urbaniak.PW_project.UI.ViewModels
             }
         }
 
+        protected WrapperT _previous;
+
+        private bool _isEdited;
+
+        public bool IsNotEdited
+        {
+            get { return !_isEdited; }
+        }
+
+        public bool IsEdited
+        {
+            get { return _isEdited; }
+            set
+            {
+                _isEdited = value;
+                OnPropertyChanged(nameof(IsEdited));
+                OnPropertyChanged(nameof(IsNotEdited));
+            }
+        }
+
         public ListViewModelBase(IObjectBL<T> objBL)
         {
             _objBL = objBL;
             List = new ObservableCollection<WrapperT>();
             UpdateList();
-            CreateCommand = new RelayCommand(o => CreateObject());
-            EditCommand = new RelayCommand(o => Edit());
-            SaveCommand = new RelayCommand(o => SaveChanges());
-            RemoveCommand = new RelayCommand(o => Remove());
+            CreateCommand = new RelayCommand(o => CreateObject(), o => !IsEdited);
+            EditCommand = new RelayCommand(o => Edit(), o => !IsEdited && Current != null);
+            SaveCommand = new RelayCommand(o => SaveChanges(), o => IsEdited && Current != null && !Current.HasErrors);
+            RemoveCommand = new RelayCommand(o => Remove(), o => Current != null && !IsEdited);
+            CancelCommand = new RelayCommand(o => Cancel(), o => IsEdited);
         }
 
         protected abstract void UpdateList();
@@ -47,11 +68,13 @@ namespace Urbaniak.PW_project.UI.ViewModels
         public RelayCommand EditCommand { get; }
         public RelayCommand SaveCommand { get; }
         public RelayCommand RemoveCommand { get; }
+        public RelayCommand CancelCommand { get; }
 
         protected abstract void CreateObject();
         protected abstract void SaveChanges();
         protected abstract void Remove();
         protected abstract void Edit();
+        protected abstract void Cancel();
 
         #endregion
 

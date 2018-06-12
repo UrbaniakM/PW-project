@@ -12,7 +12,7 @@ namespace Urbaniak.PW_project.INTERFACES
         List<T> GetByName(string name);
         T GetById(uint id);
         bool Add(T obj);
-        bool Update(T obj);
+        T Update(T obj);
         bool Remove(uint id);
     }
 }
