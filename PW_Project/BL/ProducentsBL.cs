@@ -10,23 +10,9 @@ using Urbaniak.PW_project.CORE;
 
 namespace Urbaniak.PW_project.BL
 {
-    internal class ProducentsBL : IProducentsBL
+    internal class ProducentsBL : ObjectBL<Producent>, IProducentsBL
     {
-        private IProducentsDAO _producentsDAO = null; 
-
-        public ProducentsBL(IDAO dao)
-        {
-            _producentsDAO = dao.ProducentsDAO;
-        }
-
-        public List<Producent> GetAll()
-        {
-            return _producentsDAO.GetAll();
-        }
-
-        public List<Producent> GetByName(string name)
-        {
-            return _producentsDAO.GetByName(name);
-        }
+        internal ProducentsBL(IProducentsDAO dao) : base(dao)
+        { }
     }
 }

@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDAO.cs" />
+    <Compile Include="IDAOObject.cs" />
+    <Compile Include="IObjectBL.cs" />
     <Compile Include="IProducentsBL.cs" />
     <Compile Include="IProducentsDAO.cs" />
     <Compile Include="IProductsBL.cs" />

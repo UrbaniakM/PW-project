@@ -15,7 +15,6 @@ namespace Urbaniak.PW_project.UI.ViewModels
         public List<Producent> Producents => _producentsBL.GetAll();
         public Producent CurrentProducent { get; set; }
 
-
         public ProducentsViewModel(IProducentsBL producentsBL)
         {
             _producentsBL = producentsBL;

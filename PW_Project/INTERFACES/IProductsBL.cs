@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Urbaniak.PW_project.INTERFACES
 {
-    public interface IProductsBL
+    public interface IProductsBL : IObjectBL<CORE.Product>
     {
-        List<CORE.Product> GetAll();
-
-        List<CORE.Product> GetByName(string name);
+        
     }
 }

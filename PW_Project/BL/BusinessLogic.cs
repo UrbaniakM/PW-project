@@ -21,8 +21,8 @@ namespace Urbaniak.PW_project.BL
         public BusinessLogic(string dllLocation)
         {
             _dao = GetDAO(dllLocation);
-            ProducentsBL = new ProducentsBL(_dao);
-            ProductsBL = new ProductsBL(_dao);
+            ProducentsBL = new ProducentsBL(_dao.ProducentsDAO);
+            ProductsBL = new ProductsBL(_dao.ProductsDAO);
         }
 
         private IDAO GetDAO(string dllLocation)

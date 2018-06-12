@@ -2,6 +2,8 @@
 {
     public class Product
     {
+        // id of the product
+        private readonly uint _id;
         // name of the product
         private readonly string _name;
         // country of origin of the product
@@ -10,7 +12,7 @@
         private readonly int _size;
         // mark of the product
         private readonly string _mark;
-        private static int _numberOfProducts;
+        private static uint _numberOfProducts;
 
         public Country Country
         {
@@ -44,19 +46,31 @@
             }
         }
 
+        public uint Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+
         static Product()
         {
             _numberOfProducts = 0;
         }
 
-        public Product(string mark, string name, Country country, int size)
+        public Product(uint id, string mark, string name, Country country, int size)
         {
+            _id = id;
             _name = name;
             _mark = mark;
             _country = country;
             _size = size;
             _numberOfProducts++;
         }
+
+        public Product(string mark, string name, Country country, int size) : this(_numberOfProducts, name, mark, country, size)
+        { }
 
         public Product(string mark, string name) : this(mark, name, Country.Poland, 500)
         { }

@@ -2,13 +2,23 @@
 {
     public class Producent
     {
-        // name of the producent
+        // id of the producer
+        private readonly uint _id;
+        // name of the producer
         private readonly string _name;
-        // address of the producent
+        // address of the producer
         private readonly string _address;
-        // country of the producent
+        // country of the producer
         private readonly Country _country;
-        private static int _numberOfProducents;
+        private static uint _numberOfProducers;
+
+        public uint Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         public string Name
         {
@@ -36,16 +46,20 @@
 
         static Producent()
         {
-            _numberOfProducents = 0;
+            _numberOfProducers = 0;
         }
 
-        public Producent(string name, string address, Country country)
+        public Producent(uint id, string name, string address, Country country)
         {
+            _id = id;
             _name = name;
             _address = address;
             _country = country;
-            _numberOfProducents++;
+            _numberOfProducers++;
         }
+
+        public Producent(string name, string address, Country country) : this(_numberOfProducers, name, address, country)
+        { }
 
         public Producent(string name, string address) : this(name, address, Country.Poland)
         { }

@@ -27,9 +27,17 @@ namespace Urbaniak.PW_project.DAO
             list.Add(product4);
         }
 
-        public List<Product> GetAll()
+        public bool Add(Product obj)
         {
-            return list;
+            GetAll().Add(obj);
+            return true;
+        }
+
+        public List<Product> GetAll() => list;
+
+        public Product GetById(uint id)
+        {
+            return GetAll().FirstOrDefault(obj => obj.Id == id);
         }
 
         public List<Product> GetByName(string name)
@@ -43,6 +51,22 @@ namespace Urbaniak.PW_project.DAO
                 }
             }
             return returnList;
+        }
+
+        public bool Remove(uint id)
+        {
+            return GetAll().RemoveAll(obj => obj.Id == id) > 0;
+        }
+
+        public bool Update(Product obj)
+        {
+            int index = GetAll().FindIndex(el => el.Id == obj.Id);
+            if (index < 0)
+            {
+                return false;
+            }
+            GetAll()[index] = obj;
+            return true;
         }
     }
 }
