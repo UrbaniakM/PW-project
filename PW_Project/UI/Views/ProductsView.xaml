@@ -7,14 +7,18 @@
              xmlns:cores="clr-namespace:Urbaniak.PW_project.CORE;assembly=CORE"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             d:DataContext="{d:DesignData ProductsViewModel}">
+             d:DataContext="{d:DesignData ProductsListViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding List}" Name="ProductsList"
+        <ListBox Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding List}" Name="ProductsList"
                  SelectedItem="{Binding Current}" HorizontalContentAlignment="Stretch" >
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="cores:Product">
@@ -66,6 +70,12 @@
                 <Label Grid.Row="3" Grid.Column="0" Content="Country" />
                 <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=Country}" />
             </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Button Command="{Binding CreateCommand}" Content="Add new product"/>
+            <Button Command="{Binding EditCommand}" Content="Edit selected product"/>
+            <Button Command="{Binding SaveCommand}" Content="Save changes"/>
+            <Button Command="{Binding RemoveCommand}" Content="Remove selected product"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -13,8 +13,12 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding List}" 
+        <ListBox Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding List}" 
                  SelectedItem="{Binding Current}" Name="ProducentsList">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="cores:Producent">
@@ -56,6 +60,12 @@
                 <Label Grid.Row="2" Grid.Column="0" Content="Country" />
                 <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Country}" />
             </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Button Command="{Binding CreateCommand}" Content="Add new product"/>
+            <Button Command="{Binding EditCommand}" Content="Edit selected product"/>
+            <Button Command="{Binding SaveCommand}" Content="Save changes"/>
+            <Button Command="{Binding RemoveCommand}" Content="Remove selected product"/>
         </StackPanel>
     </Grid>
 </UserControl>
