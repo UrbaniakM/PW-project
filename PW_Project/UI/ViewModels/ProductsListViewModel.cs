@@ -26,8 +26,6 @@ namespace Urbaniak.PW_project.UI.ViewModels
             Current = new ProductViewModel(List.Max(u => u.Id) + 1);
             Current.Validate();
             IsEdited = true;
-            OnPropertyChanged(nameof(IsEdited));
-            OnPropertyChanged(nameof(Current));
         }
 
         protected override void Edit()
@@ -36,8 +34,6 @@ namespace Urbaniak.PW_project.UI.ViewModels
             Current = new ProductViewModel(Current);
             Current.Validate();
             IsEdited = true;
-            OnPropertyChanged(nameof(IsEdited));
-            OnPropertyChanged(nameof(Current));
         }
 
         protected override void Remove()
@@ -62,7 +58,6 @@ namespace Urbaniak.PW_project.UI.ViewModels
                 _objBL.Add(Current);
             }
             IsEdited = false;
-            OnPropertyChanged(nameof(IsEdited));
             UpdateList();
         }
 

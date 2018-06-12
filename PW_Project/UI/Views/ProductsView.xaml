@@ -69,9 +69,10 @@
 
                 <Label Grid.Row="3" Grid.Column="0" Content="Size [ml]" />
                 <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Current.Size, ValidatesOnNotifyDataErrors=True}" IsReadOnly="{Binding IsNotEdited}" />
-                
+
                 <Label Grid.Row="4" Grid.Column="0" Content="Country" />
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=Current.Country, ValidatesOnNotifyDataErrors=True}" IsReadOnly="{Binding IsNotEdited}" />
+                <ComboBox Grid.Row="4" Grid.Column="1" SelectedValue="{Binding Path=Current.Country, ValidatesOnDataErrors=True}" ItemsSource="{Binding Path=Current.Countries}" 
+                          IsReadOnly="{Binding IsNotEdited}" IsEditable="False" IsHitTestVisible="{Binding IsEdited}" Focusable="{Binding IsEdited}" />
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
