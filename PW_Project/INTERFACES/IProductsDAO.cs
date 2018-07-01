@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Urbaniak.PW_project.INTERFACES
 {
-    public interface IProductsDAO : IDAOObject<CORE.Product>
+    public interface IProductsDAO : IDAOObject<IProduct>
     {
         
     }

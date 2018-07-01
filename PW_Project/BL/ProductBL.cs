@@ -10,9 +10,9 @@ using Urbaniak.PW_project.CORE;
 
 namespace Urbaniak.PW_project.BL
 {
-    internal class ProductsBL : ObjectBL<Product>, IProductsBL
+    internal class ProductsBL : ObjectBL<IProduct>
     {
-        internal ProductsBL(IProductsDAO dao) : base(dao)
+        internal ProductsBL(IDAOObject<IProduct> dao) : base(dao)
         { }
     }
 }

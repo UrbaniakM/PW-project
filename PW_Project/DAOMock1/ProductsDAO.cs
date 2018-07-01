@@ -12,11 +12,11 @@ namespace Urbaniak.PW_project.DAO
 {
     internal class ProductsDAO : IProductsDAO
     {
-        private List<Product> list;
+        private List<IProduct> list;
 
         internal ProductsDAO()
         {
-            list = new List<Product>();
+            list = new List<IProduct>();
             Product product1 = new Product("ŻOŁĄDKOWA", "Gorzka Wódka czysta De Luxe");
             Product product2 = new Product("ŻOŁĄDKOWA", "Gorzka Wódka");
             Product product3 = new Product("SOPLICA", "Czysta Wódka");
@@ -27,22 +27,22 @@ namespace Urbaniak.PW_project.DAO
             list.Add(product4);
         }
 
-        public bool Add(Product obj)
+        public bool Add(IProduct obj)
         {
             GetAll().Add(obj);
             return true;
         }
 
-        public List<Product> GetAll() => list;
+        public List<IProduct> GetAll() => list;
 
-        public Product GetById(uint id)
+        public IProduct GetById(uint id)
         {
             return GetAll().FirstOrDefault(obj => obj.Id == id);
         }
 
-        public List<Product> GetByName(string name)
+        public List<IProduct> GetByName(string name)
         {
-            List<Product> returnList = new List<Product>();
+            List<IProduct> returnList = new List<IProduct>();
             foreach (Product product in list)
             {
                 if (product.Name.Equals(name))
@@ -53,12 +53,17 @@ namespace Urbaniak.PW_project.DAO
             return returnList;
         }
 
+        public IProduct CreateNewObj()
+        {
+            return new Product();
+        }
+
         public bool Remove(uint id)
         {
             return GetAll().RemoveAll(obj => obj.Id == id) > 0;
         }
 
-        public Product Update(Product obj)
+        public IProduct Update(IProduct obj)
         {
             int index = GetAll().FindIndex(el => el.Id == obj.Id);
             if (index >= 0)

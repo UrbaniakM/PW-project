@@ -8,10 +8,7 @@ namespace Urbaniak.PW_project.INTERFACES
 {
     public interface IDAO
     {
-
         IProducentsDAO ProducentsDAO { get; }
-
         IProductsDAO ProductsDAO { get; }
-
     }
 }

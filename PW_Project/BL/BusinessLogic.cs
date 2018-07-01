@@ -15,8 +15,8 @@ namespace Urbaniak.PW_project.BL
     public class BusinessLogic
     {
         private IDAO _dao = null;
-        public IProducentsBL ProducentsBL { get; }
-        public IProductsBL ProductsBL { get; }
+        public IObjectBL<IProducent> ProducentsBL { get; }
+        public IObjectBL<IProduct> ProductsBL { get; }
 
         public BusinessLogic(string dllLocation)
         {

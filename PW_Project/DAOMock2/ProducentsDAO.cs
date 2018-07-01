@@ -12,11 +12,11 @@ namespace Urbaniak.PW_project.DAO
 {
     internal class ProducentsDAO : IProducentsDAO
     {
-        private List<Producent> list;
+        private List<IProducent> list;
 
         internal ProducentsDAO()
         {
-            list = new List<Producent>();
+            list = new List<IProducent>();
             Producent producent1 = new Producent("Russkij Standard",
                 "World Trade Center, Office 1503a Krasnopresnenskaya Emb., 12, 123610 Moscow",
                 Country.Russia
@@ -28,23 +28,23 @@ namespace Urbaniak.PW_project.DAO
             list.Add(producent3);
         }
 
-        public bool Add(Producent obj)
+        public bool Add(IProducent obj)
         {
             GetAll().Add(obj);
             return true;
         }
 
-        public List<Producent> GetAll() => list;
+        public List<IProducent> GetAll() => list;
 
-        public Producent GetById(uint id)
+        public IProducent GetById(uint id)
         {
             return GetAll().FirstOrDefault(obj => obj.Id == id);
         }
 
-        public List<Producent> GetByName(string name)
+        public List<IProducent> GetByName(string name)
         {
-            List<Producent> returnList = new List<Producent>();
-            foreach (Producent producent in list)
+            List<IProducent> returnList = new List<IProducent>();
+            foreach (IProducent producent in list)
             {
                 if (producent.Name.Equals(name))
                 {
@@ -54,12 +54,17 @@ namespace Urbaniak.PW_project.DAO
             return returnList;
         }
 
+        public IProducent CreateNewObj()
+        {
+            return new Producent();
+        }
+
         public bool Remove(uint id)
         {
             return GetAll().RemoveAll(obj => obj.Id == id) > 0;
         }
 
-        public Producent Update(Producent obj)
+        public IProducent Update(IProducent obj)
         {
             int index = GetAll().FindIndex(el => el.Id == obj.Id);
             if (index >= 0)

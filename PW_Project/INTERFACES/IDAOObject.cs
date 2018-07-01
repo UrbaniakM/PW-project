@@ -11,6 +11,7 @@ namespace Urbaniak.PW_project.INTERFACES
         List<T> GetAll();
         List<T> GetByName(string name);
         T GetById(uint id);
+        T CreateNewObj();
         bool Add(T obj);
         T Update(T obj);
         bool Remove(uint id);

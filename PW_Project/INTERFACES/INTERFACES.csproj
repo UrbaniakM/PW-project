@@ -43,9 +43,9 @@
     <Compile Include="IDAO.cs" />
     <Compile Include="IDAOObject.cs" />
     <Compile Include="IObjectBL.cs" />
-    <Compile Include="IProducentsBL.cs" />
+    <Compile Include="IProducent.cs" />
     <Compile Include="IProducentsDAO.cs" />
-    <Compile Include="IProductsBL.cs" />
+    <Compile Include="IProduct.cs" />
     <Compile Include="IProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

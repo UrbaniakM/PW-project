@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 //dlls
 using Urbaniak.PW_project.CORE;
+using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
@@ -23,7 +26,7 @@ namespace Urbaniak.PW_project.UI.ViewModels
 
         public List<Country> Countries => Enum.GetValues(typeof(Country)).Cast<Country>().ToList();
 
-        public ProducerViewModel(Producent producer)
+        public ProducerViewModel(IProducent producer)
         {
             _id = producer.Id;
             _name = producer.Name;
@@ -46,10 +49,10 @@ namespace Urbaniak.PW_project.UI.ViewModels
             _country = old.Country;
         }
 
-        public static implicit operator Producent(ProducerViewModel model)
+        /*public static implicit operator Producent(ProducerViewModel model)
         {
             return new Producent(model.Id, model.Name, model.Address, model.Country);
-        }
+        }*/
 
         #endregion
 

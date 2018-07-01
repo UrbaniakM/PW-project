@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 //dlls
 using Urbaniak.PW_project.CORE;
+using Urbaniak.PW_project.INTERFACES;
+using System.Reflection;
+using System.Collections;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
@@ -25,7 +28,8 @@ namespace Urbaniak.PW_project.UI.ViewModels
 
         public List<Country> Countries => Enum.GetValues(typeof(Country)).Cast<Country>().ToList();
 
-        public ProductViewModel(Product product)
+
+        public ProductViewModel(IProduct product)
         {
             _id = product.Id;
             _name = product.Name;
@@ -50,10 +54,10 @@ namespace Urbaniak.PW_project.UI.ViewModels
             _mark = product.Mark;
         }
 
-        public static implicit operator Product(ProductViewModel model)
+        /*public static implicit operator Product(ProductViewModel model)
         {
             return new Product(model.Id, model.Mark, model.Name, model.Country, model.Size);
-        }
+        }*/
 
         #endregion
 

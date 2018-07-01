@@ -1,17 +1,21 @@
-﻿namespace Urbaniak.PW_project.CORE
+﻿//dlls
+using Urbaniak.PW_project.CORE;
+using Urbaniak.PW_project.INTERFACES;
+
+namespace Urbaniak.PW_project.DAO
 {
-    public class Product
+    public class Product : IProduct
     {
         // id of the product
-        private readonly uint _id;
+        private uint _id;
         // name of the product
-        private readonly string _name;
+        private string _name;
         // country of origin of the product
-        private readonly Country _country;
+        private Country _country;
         // size in ml
-        private readonly int _size;
+        private int _size;
         // mark of the product
-        private readonly string _mark;
+        private string _mark;
         private static uint _numberOfProducts;
 
         public Country Country
@@ -19,6 +23,10 @@
             get
             {
                 return _country;
+            }
+            set
+            {
+                _country = value;
             }
         }
 
@@ -28,6 +36,10 @@
             {
                 return _size;
             }
+            set
+            {
+                _size = value;
+            }
         }
 
         public string Name
@@ -35,6 +47,10 @@
             get
             {
                 return _name;
+            }
+            set
+            {
+                _name = value;
             }
         }
 
@@ -44,6 +60,10 @@
             {
                 return _mark;
             }
+            set
+            {
+                _mark = value;
+            }
         }
 
         public uint Id
@@ -52,12 +72,18 @@
             {
                 return _id;
             }
+            set
+            {
+                _id = value;
+            }
         }
 
         static Product()
         {
             _numberOfProducts = 0;
         }
+
+        public Product() { }
 
         public Product(uint id, string mark, string name, Country country, int size)
         {

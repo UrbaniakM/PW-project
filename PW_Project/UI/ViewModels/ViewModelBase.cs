@@ -18,6 +18,22 @@ namespace Urbaniak.PW_project.UI.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public List<string> Errors
+        {
+            get
+            {
+                List<string> errorsList = new List<string>();
+                foreach(List<string> propErr in _errors.Values)
+                {
+                    foreach(string err in propErr)
+                    {
+                        errorsList.Add(err);
+                    }
+                }
+                return errorsList;
+            }
+        }
+
         protected Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
 
         protected void AddError(string propertyName, string errorMessage)
@@ -97,6 +113,8 @@ namespace Urbaniak.PW_project.UI.ViewModels
 
                 RaiseErrorChanged(prop.Key);
             }
+
+            OnPropertyChanged("Errors");
         }
     }
 }

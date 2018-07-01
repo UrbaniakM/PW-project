@@ -10,9 +10,9 @@ using Urbaniak.PW_project.INTERFACES;
 
 namespace Urbaniak.PW_project.UI.ViewModels
 {
-    public class ProducersListViewModel : ListViewModelBase<Producent, ProducerViewModel>
+    public class ProducersListViewModel : ListViewModelBase<IProducent, ProducerViewModel>
     {
-        public ProducersListViewModel(IProducentsBL _objBL) : base(_objBL)
+        public ProducersListViewModel(IObjectBL<IProducent> _objBL) : base(_objBL)
         { }
 
         protected override void UpdateList()
@@ -53,14 +53,24 @@ namespace Urbaniak.PW_project.UI.ViewModels
         {
             if (List.Any(obj => obj.Id == Current.Id))
             {
-                _objBL.Update(Current);
+                _objBL.Update(ConvertCurrent());
             }
             else
             {
-                _objBL.Add(Current);
+                _objBL.Add(ConvertCurrent());
             }
             IsEdited = false;
             UpdateList();
+        }
+
+        protected IProducent ConvertCurrent()
+        {
+            IProducent zm = _objBL.CreateNewObj();
+            zm.Id = Current.Id;
+            zm.Name = Current.Name;
+            zm.Address = Current.Address;
+            zm.Country = Current.Country;
+            return zm;
         }
 
         protected override void Cancel()

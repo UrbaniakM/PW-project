@@ -24,8 +24,8 @@ namespace Urbaniak.PW_project.UI
         public void PrintProducents()
         {
             Console.WriteLine("Producents:");
-            List<Producent> producents = _businessLogic.ProducentsBL.GetAll();
-            foreach (Producent producent in producents)
+            List<IProducent> producents = _businessLogic.ProducentsBL.GetAll();
+            foreach (IProducent producent in producents)
             {
                 System.Console.WriteLine(producent);
             }
@@ -35,8 +35,8 @@ namespace Urbaniak.PW_project.UI
         public void PrintProducts()
         {
             Console.WriteLine("Products");
-            List<Product> products = _businessLogic.ProductsBL.GetAll();
-            foreach (Product product in products)
+            List<IProduct> products = _businessLogic.ProductsBL.GetAll();
+            foreach (IProduct product in products)
             {
                 System.Console.WriteLine(product);
             }

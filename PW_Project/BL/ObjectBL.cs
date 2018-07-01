@@ -21,6 +21,8 @@ namespace Urbaniak.PW_project.BL
 
         public bool Add(T obj) => _dao.Add(obj);
 
+        public T CreateNewObj() => _dao.CreateNewObj();
+
         public List<T> GetAll() => _dao.GetAll();
 
         public T GetById(uint id) => _dao.GetById(id);

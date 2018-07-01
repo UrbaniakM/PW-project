@@ -1,15 +1,19 @@
-﻿namespace Urbaniak.PW_project.CORE
+﻿//dlls
+using Urbaniak.PW_project.CORE;
+using Urbaniak.PW_project.INTERFACES;
+
+namespace Urbaniak.PW_project.DAO
 {
-    public class Producent
+    public class Producent : IProducent
     {
         // id of the producer
-        private readonly uint _id;
+        private uint _id;
         // name of the producer
-        private readonly string _name;
+        private string _name;
         // address of the producer
-        private readonly string _address;
+        private string _address;
         // country of the producer
-        private readonly Country _country;
+        private Country _country;
         private static uint _numberOfProducers;
 
         public uint Id
@@ -17,6 +21,10 @@
             get
             {
                 return _id;
+            }
+            set
+            {
+                _id = value;
             }
         }
 
@@ -26,6 +34,10 @@
             {
                 return _name;
             }
+            set
+            {
+                _name = value;
+            }
         }
 
         public string Address
@@ -33,6 +45,10 @@
             get
             {
                 return _address;
+            }
+            set
+            {
+                _address = value;
             }
         }
 
@@ -42,12 +58,18 @@
             {
                 return _country;
             }
+            set
+            {
+                _country = value;
+            }
         }
 
         static Producent()
         {
             _numberOfProducers = 0;
         }
+
+        public Producent() { }
 
         public Producent(uint id, string name, string address, Country country)
         {
